@@ -15,21 +15,30 @@
             </header>
         </div>
 
-<!-- weather output -->
-        <div class="flex-row align-start align-stretch-md align-content-start align-content-stretch-md min-100-vh bg-primary">
+        <main class="flex-row align-start align-stretch-md align-content-start align-content-stretch-md min-100-vh bg-primary">
+            <!-- Search location section -->
             <div class="col-12 col-md-3 bg-light p-3">
                 <h1 class="text-primary">Search for a City:</h1>
                 <form id="search-form" class="mb-2">
-                  <input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
-                  <button class="btn btn-info btn-block">Search</button>
+                  <input id="search-input" class="form-input w-100" type="text" placeholder="Search">
+                  <!-- <button class="btn btn-info btn-block">Search</button> -->
+                  <button type="submit" class="btn btn-info btn-block" id="searchBtn"> Show me the weather!
+                    <i class="fas fa-search-location"></i>
+                  </button>
                 </form>
             </div>
 
+            <!-- Current weather section -->
             <div class="col-12 col-md-9 p-3 text-light">
                 <h2>Showing results for: <span id="result-text"></span></h2>
                 <div id="result-content"></div>
             </div>
-        </div>
+
+            <!-- Weather forecast section -->
+            <div>
+                
+            </div>
+        </main>
 
 
     <script src="script.js"></script>

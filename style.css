@@ -1,5 +1,9 @@
 header {
-    
+    text-align: center;
+    background-color: #20bf55;
+    background-image: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
+    color: white;
+    font-family: monospace, monospace;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
