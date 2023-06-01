@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Weather Dashboard</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -17,27 +18,41 @@
 
         <main class="flex-row align-start align-stretch-md align-content-start align-content-stretch-md min-100-vh bg-primary">
             <!-- Search location section -->
-            <div class="col-12 col-md-3 bg-light p-3">
+            <!-- <div class="col-12 col-md-3 bg-light p-3">
                 <h2 class="text-primary">Search for a City:</h2>
                 <form id="search-form" class="mb-2">
                   <input id="search-input" class="form-input w-100" type="text" placeholder="Search">
-                  <!-- <button class="btn btn-info btn-block">Search</button> -->
                   <button type="submit" class="btn btn-info btn-block" id="searchBtn"> Show me the weather!
                     <i class="fas fa-search-location"></i>
                   </button>
                 </form>
-            </div>
+            </div> -->
 
             <!-- Current weather section -->
-            <div class="col-12 col-md-9 p-3 text-light">
-                <h3 class="hidden">Showing results for: <span id="result-text"></span></h3>
-                <div id="result-content"></div>
-            </div>
+            <!-- <div class="col-12 col-md-9 p-3 text-light">
+                <h3>Current weather for: <span id="result-text"></span></h3>
+                <div id="result-content" class="weatherutput"></div>
+            </div> -->
 
             <!-- Weather forecast section -->
-            <div>
-                
+            
+            <div class="col-12 col-md-4">
+
+                <div class="card">
+                  <h3 class="card-header text-uppercase">Search By City</h3>
+                  <form id="user-form" class="card-body">
+                        <label class="form-label" for="city">City</label>
+                        <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+                        <button type="submit" class="btn">Get Weather</button>
+                  </form>
+                </div>
             </div>
+          
+            <div class="col-12 col-md-8">
+                <h2 class="subtitle">Showing Repositories for: <span id="repo-search-term"></span></h2>
+                <div id="repos-container" class="list-group"></div>
+            </div>
+
         </main>
 
 
