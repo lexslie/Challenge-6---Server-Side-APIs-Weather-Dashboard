@@ -1,10 +1,6 @@
-// var weatherAPIKey = "1315bf372e314ca89e141b1ab0e182ba";
-// var city;
-// var weatherqueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
-// var weatherFormEl = document.querySelector("#weather-form");
-
 var weatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}`
 var APIkey = `1315bf372e314ca89e141b1ab0e182ba`;
+var name;
 var lon;
 var lat;
 var searchLocation;
@@ -15,22 +11,25 @@ var localWeather = ('.local-weather')
 
 
 function getLocation(cityName){
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit={limit}&appid=${APIkey}`)
-        .then(function(response) {
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${APIkey}`)
         // get city's longitude and latitude
-            var name = Response.cityName;
-            var lat = Response.coord.lat;
-            var lon = Response.coord.lon;
+        .then(Response => Response.json())
+        .then(data => {
+            console.log(data)
+            name = data[0].cityName;
+            lat = data[0].lat;
+            lon = data[0].lon;
+            getWeatherData(name, lat, lon);
         })
 };
     
 
-// function getForecast() {
-//     localStorage.setItem('userLon', eventResult.center[0]);
-//     localStorage.setItem('userLat', eventResult.center[1]);
-//     localStorage.setItem('userLocation', searchLocation);
-//     window.location.href = './forecast.html';
-// };
+function getForecast() {
+    localStorage.setItem('userLon', eventResult.center[0]);
+    localStorage.setItem('userLat', eventResult.center[1]);
+    localStorage.setItem('userLocation', searchLocation);
+    window.location.href = './forecast.html';
+};
 
 function getWeather(lon, lat){  
     fetch(weatherURL + 'lat=' + lat + '&lon=' + lon + "&units=imperial&" + APIkey)  // takes longitude and latitude data from the city search to call the weather API
@@ -51,15 +50,16 @@ function getWeather(lon, lat){
 // }
 
 
-function getWeatherData(location) {
+function getWeatherData(location, lat, lon) {
     const APIkey = "1315bf372e314ca89e141b1ab0e182ba";
     const weatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}`
     return fetch(weatherURL)
         .then(Response => Response.json())
         .then(data => {
+            console.log(data);
             const weatherData = {
-                temperature: data.main.temp,
-                condition: data.weather[0].main,
+                temperature: data.main,
+                condition: data.weather,
                 location: data.name,
             };
             return weatherData;
@@ -81,11 +81,12 @@ const searchBar = document.querySelector("#search-bar");
 
 searchBtn.addEventListener("click", () => {
     const location = searchBar.value;
-    getWeatherData(location)
-        .then(weatherData => {
-            updateUI(weatherData);
-        })
-        .catch(error => {
-            console.log(error);
-        });
+    getLocation(location)
+    // getWeatherData(location)
+    //     .then(weatherData => {
+    //         updateUI(weatherData);
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //     });
 });
