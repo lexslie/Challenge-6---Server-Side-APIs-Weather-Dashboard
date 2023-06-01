@@ -3,8 +3,8 @@
 // var weatherqueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 // var weatherFormEl = document.querySelector("#weather-form");
 
-var weatherURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}'
-var APIkey = '1315bf372e314ca89e141b1ab0e182ba';
+var weatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}`
+var APIkey = `1315bf372e314ca89e141b1ab0e182ba`;
 var lon;
 var lat;
 var searchLocation;
@@ -13,12 +13,24 @@ var eventResult;
 var userLocation = ('#search-bar');
 var localWeather = ('.local-weather')
 
-function getForecast() {
-    localStorage.setItem('userLon', eventResult.center[0]);
-    localStorage.setItem('userLat', eventResult.center[1]);
-    localStorage.setItem('userLocation', searchLocation);
-    window.location.href = './forecast.html';
+
+function getLocation(cityName){
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit={limit}&appid=${APIkey}`)
+        .then(function(response) {
+        // get city's longitude and latitude
+            var name = Response.cityName;
+            var lat = Response.coord.lat;
+            var lon = Response.coord.lon;
+        })
 };
+    
+
+// function getForecast() {
+//     localStorage.setItem('userLon', eventResult.center[0]);
+//     localStorage.setItem('userLat', eventResult.center[1]);
+//     localStorage.setItem('userLocation', searchLocation);
+//     window.location.href = './forecast.html';
+// };
 
 function getWeather(lon, lat){  
     fetch(weatherURL + 'lat=' + lat + '&lon=' + lon + "&units=imperial&" + APIkey)  // takes longitude and latitude data from the city search to call the weather API
@@ -29,14 +41,14 @@ function getWeather(lon, lat){
 
 
 
-// Grabs the searched location and spits out longitude/latitude
-function parseLocation(result) {
-    lon = result.center[0];
-    lat = result.center[1];
-    placeEL.text("Weather for " + result.place_name);
-    weatherContainer.attr('class', 'row');
-    getWeather(lon, lat);
-}
+// // Grabs the searched location and spits out longitude/latitude
+// function parseLocation(result) {
+//     lon = result.center[0];
+//     lat = result.center[1];
+//     placeEL.text("Weather for " + result.place_name);
+//     weatherContainer.attr('class', 'row');
+//     getWeather(lon, lat);
+// }
 
 
 function getWeatherData(location) {
