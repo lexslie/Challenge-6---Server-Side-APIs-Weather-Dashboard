@@ -90,3 +90,6 @@ searchBtn.addEventListener("click", () => {
     //         console.log(error);
     //     });
 });
+
+// current weather
+
