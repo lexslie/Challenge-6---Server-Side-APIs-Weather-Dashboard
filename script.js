@@ -16,12 +16,11 @@ function getLocation(cityName){
         // get city's longitude and latitude
         .then(Response => Response.json())
         .then(data => {
-            console.log(data)
-            cityName = data[0].name;
+            console.log("this is getLocation", data)
             lat = data[0].lat;
             lon = data[0].lon;
-            getWeatherData(name, lat, lon);
-            getCurrentWeather(name, lat, lon);
+            getWeatherData(lat, lon);
+            getCurrentWeather(lat, lon);
         })
 };
     
@@ -33,19 +32,13 @@ function getForecast() {
     window.location.href = './forecast.html';
 };
 
-function getWeather(lon, lat){  
-    fetch(weatherURL + 'lat=' + lat + '&lon=' + lon + "&units=imperial&" + APIkey)  // takes longitude and latitude data from the city search to call the weather API
-      .then(function (response) {
-      return response.json();
-    })
-};
 
-// current weather API
-function getCurrentWeather(location, lat, lon){
+// Current weather API
+function getCurrentWeather(lat, lon){
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}`)
      .then(Response => Response.json())
      .then(data => {
-        console.log(data);
+        console.log("this is getCurrentWeather", data);
         const currentWeather = {
             weather: data.main,
             condition: data.weather,
@@ -56,41 +49,30 @@ function getCurrentWeather(location, lat, lon){
 };
 
 
-// // Grabs the searched location and spits out longitude/latitude
-// function parseLocation(result) {
-//     lon = result.center[0];
-//     lat = result.center[1];
-//     placeEL.text("Weather for " + result.place_name);
-//     weatherContainer.attr('class', 'row');
-//     getWeather(lon, lat);
-// }
-
-
-function getWeatherData(location, lat, lon) {
-    const APIkey = "1315bf372e314ca89e141b1ab0e182ba";
+function getWeatherData(lat, lon) {
     const weatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}`
-    return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}`)
+    return fetch(weatherURL)
         .then(Response => Response.json())
         .then(data => {
-            console.log(data);
-            const weatherData = {
-                temperature: data.main,
-                condition: data.weather,
-                location: data.name,
-            };
-            return weatherData;
+            console.log("this is getWeatherData", data);
+            console.log(data.list[0].main.humidity);
+            updateUI(data);
         });
 };
 
+// Displaying data
 function updateUI(weatherData) {
     const temperature = document.querySelector("#temperature");
-    const condition = document.querySelector("#condition");
+    const humidity = document.querySelector("#humidity");
+    const windspeed = document.querySelector("#windspeed");
     const location = document.querySelector("#location");
 
-    temperature.textContent = '${weatherData.temperature}°C';
-    condition.textContent = weatherData.condition;
-    location.textContent = weatherData.location;
+    location.textContent = ("Today's weather for: ") + weatherData.city.name;
+    temperature.textContent = ("Current temperature: ") + weatherData.list[0].main.temp;
+    humidity.textContent = ("Current humidity: ") + weatherData.list[0].main.humidity;
+    windspeed.textContent = ("Current windspeed: ") + weatherData.list[0].wind.speed;
 }
+
 
 const searchBtn = document.querySelector("#search-btn");
 const searchBar = document.querySelector("#search-bar");
@@ -98,11 +80,4 @@ const searchBar = document.querySelector("#search-bar");
 searchBtn.addEventListener("click", () => {
     const location = searchBar.value;
     getLocation(location)
-    // getWeatherData(location)
-    //     .then(weatherData => {
-    //         updateUI(weatherData);
-    //     })
-    //     .catch(error => {
-    //         console.log(error);
-    //     });
 });
