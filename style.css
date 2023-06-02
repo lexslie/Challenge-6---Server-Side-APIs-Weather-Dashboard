@@ -176,7 +176,7 @@ p {
     width: fit-content;
     border: 3px solid #0d0e0d;
     padding: 10px;
-    top: 18rem;
+    top: 17.8rem;
 }
 
 #location {
@@ -190,7 +190,7 @@ p {
 .weatherBox {
     position: absolute;
     right: 10%;
-    top: 31%;
+    top: 15.3rem;
 }
 
 .weatherBox1 {
