@@ -67,6 +67,17 @@ function updateUI(weatherData) {
     const windspeed = document.querySelector("#windspeed");
     const location = document.querySelector("#location");
 
+    // in progress code to change dates to weekdays 
+    // const dateSix = new Date(weatherData.list[5].dt_txt);
+    // dateSix.toDateString();
+    // console.log(dateSix);
+    // var dateString = weatherData.list[5].dt_txt;
+    // var date = new Date();
+    // var dayOfTheWeek = date.toLocaleString();
+    // console.log(dateString);
+    // console.log(date);
+    // console.log(dayOfTheWeek);
+
     location.textContent = ("Today's weather for: ") + weatherData.city.name;
     currentTemperature.textContent = ("Current temperature: ") + weatherData.list[0].main.temp + (" °F");
     currentHumidity.textContent = ("Current humidity: ") + weatherData.list[0].main.humidity + ("%");
