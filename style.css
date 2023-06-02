@@ -59,9 +59,9 @@ h3 {
 }
   
 p {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     margin: 0 1rem 1rem;
-    line-height: 1.5;
+    line-height: 1.1;
 }
   
   
@@ -242,5 +242,3 @@ p {
     top: 2.5rem;
     flex-direction: column;
 }
-
-
