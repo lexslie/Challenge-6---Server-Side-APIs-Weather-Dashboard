@@ -73,29 +73,29 @@ function updateUI(weatherData) {
     currentWindspeed.textContent = ("Current windspeed: ") + weatherData.list[0].wind.speed + (" MPH");
 
     dateOne.textContent = weatherData.list[5].dt_txt;
-    temperatureOne.textContent = ("Day 1 temperature: ") + weatherData.list[5].main.temp + (" °F");
-    humidityOne.textContent = ("Day 1 humidity: ") + weatherData.list[5].main.humidity + ("%");
-    windspeedOne.textContent = ("Day 1 windspeed: ") + weatherData.list[5].wind.speed + (" MPH");
+    temperatureOne.textContent = ("Average temperature: ") + weatherData.list[5].main.temp + (" °F");
+    humidityOne.textContent = ("Average humidity: ") + weatherData.list[5].main.humidity + ("%");
+    windspeedOne.textContent = ("Average windspeed: ") + weatherData.list[5].wind.speed + (" MPH");
 
     dateTwo.textContent = weatherData.list[13].dt_txt;
-    temperatureTwo.textContent = ("Day 2 temperature: ") + weatherData.list[13].main.temp + (" °F");
-    humidityTwo.textContent = ("Day 2 humidity: ") + weatherData.list[13].main.humidity + ("%");
-    windspeedTwo.textContent = ("Day 2 windspeed: ") + weatherData.list[13].wind.speed + (" MPH");
+    temperatureTwo.textContent = ("Average temperature: ") + weatherData.list[13].main.temp + (" °F");
+    humidityTwo.textContent = ("Average humidity: ") + weatherData.list[13].main.humidity + ("%");
+    windspeedTwo.textContent = ("Average windspeed: ") + weatherData.list[13].wind.speed + (" MPH");
 
     dateThree.textContent = weatherData.list[21].dt_txt;
-    temperatureThree.textContent = ("Day 3 temperature: ") + weatherData.list[21].main.temp + (" °F");
-    humidityThree.textContent = ("Day 3 humidity: ") + weatherData.list[21].main.humidity + ("%");
-    windspeedThree.textContent = ("Day 3 windspeed: ") + weatherData.list[21].wind.speed + (" MPH");
+    temperatureThree.textContent = ("Average temperature: ") + weatherData.list[21].main.temp + (" °F");
+    humidityThree.textContent = ("Average humidity: ") + weatherData.list[21].main.humidity + ("%");
+    windspeedThree.textContent = ("Average windspeed: ") + weatherData.list[21].wind.speed + (" MPH");
 
     dateFour.textContent = weatherData.list[29].dt_txt;
-    temperatureFour.textContent = ("Day 4 temperature: ") + weatherData.list[29].main.temp + (" °F");
-    humidityFour.textContent = ("Day 4 humidity: ") + weatherData.list[29].main.humidity + ("%");
-    windspeedFour.textContent = ("Day 4 windspeed: ") + weatherData.list[29].wind.speed + (" MPH");
+    temperatureFour.textContent = ("Average temperature: ") + weatherData.list[29].main.temp + (" °F");
+    humidityFour.textContent = ("Average humidity: ") + weatherData.list[29].main.humidity + ("%");
+    windspeedFour.textContent = ("Average windspeed: ") + weatherData.list[29].wind.speed + (" MPH");
 
     dateFive.textContent = weatherData.list[37].dt_txt;
-    temperatureFive.textContent = ("Day 5 temperature: ") + weatherData.list[37].main.temp + (" °F");
-    humidityFive.textContent = ("Day 5 humidity: ") + weatherData.list[37].main.humidity + ("%");
-    windspeedFive.textContent = ("Day 5 windspeed: ") + weatherData.list[37].wind.speed + (" MPH");
+    temperatureFive.textContent = ("Average temperature: ") + weatherData.list[37].main.temp + (" °F");
+    humidityFive.textContent = ("Average humidity: ") + weatherData.list[37].main.humidity + ("%");
+    windspeedFive.textContent = ("Averagea windspeed: ") + weatherData.list[37].wind.speed + (" MPH");
 }
 
 
