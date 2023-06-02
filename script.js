@@ -20,6 +20,7 @@ function getLocation(cityName){
             lat = data[0].lat;
             lon = data[0].lon;
             getWeatherData(name, lat, lon);
+            getCurrentWeather(name, lat, lon);
         })
 };
     
@@ -38,6 +39,20 @@ function getWeather(lon, lat){
     })
 };
 
+// current weather API
+function getCurrentWeather(location, lat, lon){
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}`)
+     .then(Response => Response.json())
+     .then(data => {
+        console.log(data);
+        const currentWeather = {
+            weather: data.main,
+            condition: data.weather,
+            location: data.name,
+        };
+        return currentWeather;
+     });
+};
 
 
 // // Grabs the searched location and spits out longitude/latitude
@@ -53,7 +68,7 @@ function getWeather(lon, lat){
 function getWeatherData(location, lat, lon) {
     const APIkey = "1315bf372e314ca89e141b1ab0e182ba";
     const weatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}`
-    return fetch(weatherURL)
+    return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}`)
         .then(Response => Response.json())
         .then(data => {
             console.log(data);
@@ -64,7 +79,7 @@ function getWeatherData(location, lat, lon) {
             };
             return weatherData;
         });
-}
+};
 
 function updateUI(weatherData) {
     const temperature = document.querySelector("#temperature");
@@ -91,5 +106,4 @@ searchBtn.addEventListener("click", () => {
     //     });
 });
 
-// current weather
 
