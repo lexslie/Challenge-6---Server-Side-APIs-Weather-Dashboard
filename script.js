@@ -1,6 +1,7 @@
 var weatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}`
 var APIkey = `1315bf372e314ca89e141b1ab0e182ba`;
 var name;
+var cityName;
 var lon;
 var lat;
 var searchLocation;
@@ -16,7 +17,7 @@ function getLocation(cityName){
         .then(Response => Response.json())
         .then(data => {
             console.log(data)
-            name = data[0].cityName;
+            cityName = data[0].name;
             lat = data[0].lat;
             lon = data[0].lon;
             getWeatherData(name, lat, lon);
@@ -105,5 +106,3 @@ searchBtn.addEventListener("click", () => {
     //         console.log(error);
     //     });
 });
-
-
