@@ -69,28 +69,28 @@ function updateUI(weatherData) {
 
     location.textContent = ("Today's weather for: ") + weatherData.city.name;
     currentTemperature.textContent = ("Current temperature: ") + weatherData.list[0].main.temp;
-    currentHumidity.textContent = ("Current humidity: ") + weatherData.list[0].main.humidity;
-    currentWindspeed.textContent = ("Current windspeed: ") + weatherData.list[0].wind.speed;
+    currentHumidity.textContent = ("Current humidity: ") + weatherData.list[0].main.humidity + ("%");
+    currentWindspeed.textContent = ("Current windspeed: ") + weatherData.list[0].wind.speed + (" MPH");
 
     temperatureOne.textContent = ("Day 1 temperature: ") + weatherData.list[5].main.temp;
-    humidityOne.textContent = ("Day 1 humidity: ") + weatherData.list[5].main.humidity;
-    windspeedOne.textContent = ("Day 1 windspeed: ") + weatherData.list[5].wind.speed;
+    humidityOne.textContent = ("Day 1 humidity: ") + weatherData.list[5].main.humidity + ("%");
+    windspeedOne.textContent = ("Day 1 windspeed: ") + weatherData.list[5].wind.speed + (" MPH");
 
     temperatureTwo.textContent = ("Day 2 temperature: ") + weatherData.list[13].main.temp;
-    humidityTwo.textContent = ("Day 2 humidity: ") + weatherData.list[13].main.humidity;
-    windspeedTwo.textContent = ("Day 2 windspeed: ") + weatherData.list[13].wind.speed;
+    humidityTwo.textContent = ("Day 2 humidity: ") + weatherData.list[13].main.humidity + ("%");
+    windspeedTwo.textContent = ("Day 2 windspeed: ") + weatherData.list[13].wind.speed + (" MPH");
 
     temperatureThree.textContent = ("Day 3 temperature: ") + weatherData.list[21].main.temp;
-    humidityThree.textContent = ("Day 3 humidity: ") + weatherData.list[21].main.humidity;
-    windspeedThree.textContent = ("Day 3 windspeed: ") + weatherData.list[21].wind.speed;
+    humidityThree.textContent = ("Day 3 humidity: ") + weatherData.list[21].main.humidity + ("%");
+    windspeedThree.textContent = ("Day 3 windspeed: ") + weatherData.list[21].wind.speed + (" MPH");
 
     temperatureFour.textContent = ("Day 4 temperature: ") + weatherData.list[29].main.temp;
-    humidityFour.textContent = ("Day 4 humidity: ") + weatherData.list[29].main.humidity;
-    windspeedFour.textContent = ("Day 4 windspeed: ") + weatherData.list[29].wind.speed;
+    humidityFour.textContent = ("Day 4 humidity: ") + weatherData.list[29].main.humidity + ("%");
+    windspeedFour.textContent = ("Day 4 windspeed: ") + weatherData.list[29].wind.speed + (" MPH");
 
     temperatureFive.textContent = ("Day 5 temperature: ") + weatherData.list[37].main.temp;
-    humidityFive.textContent = ("Day 5 humidity: ") + weatherData.list[37].main.humidity;
-    windspeedFive.textContent = ("Day 5 windspeed: ") + weatherData.list[37].wind.speed;
+    humidityFive.textContent = ("Day 5 humidity: ") + weatherData.list[37].main.humidity + ("%");
+    windspeedFive.textContent = ("Day 5 windspeed: ") + weatherData.list[37].wind.speed + (" MPH");
 }
 
 
