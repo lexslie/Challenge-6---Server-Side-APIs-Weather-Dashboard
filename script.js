@@ -12,7 +12,7 @@ var localWeather = ('.local-weather')
 
 
 function getLocation(cityName){
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${APIkey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${APIkey}`)
         // get city's longitude and latitude
         .then(Response => Response.json())
         .then(data => {
