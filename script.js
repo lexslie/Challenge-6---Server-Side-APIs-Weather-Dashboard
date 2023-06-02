@@ -35,7 +35,7 @@ function getForecast() {
 
 // Current weather API
 function getCurrentWeather(lat, lon){
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}&units=imperial`)
      .then(Response => Response.json())
      .then(data => {
         console.log("this is getCurrentWeather", data);
@@ -50,7 +50,7 @@ function getCurrentWeather(lat, lon){
 
 
 function getWeatherData(lat, lon) {
-    const weatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}`
+    const weatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}&units=imperial`
     return fetch(weatherURL)
         .then(Response => Response.json())
         .then(data => {
@@ -68,27 +68,27 @@ function updateUI(weatherData) {
     const location = document.querySelector("#location");
 
     location.textContent = ("Today's weather for: ") + weatherData.city.name;
-    currentTemperature.textContent = ("Current temperature: ") + weatherData.list[0].main.temp;
+    currentTemperature.textContent = ("Current temperature: ") + weatherData.list[0].main.temp + (" °F");
     currentHumidity.textContent = ("Current humidity: ") + weatherData.list[0].main.humidity + ("%");
     currentWindspeed.textContent = ("Current windspeed: ") + weatherData.list[0].wind.speed + (" MPH");
 
-    temperatureOne.textContent = ("Day 1 temperature: ") + weatherData.list[5].main.temp;
+    temperatureOne.textContent = ("Day 1 temperature: ") + weatherData.list[5].main.temp + (" °F");
     humidityOne.textContent = ("Day 1 humidity: ") + weatherData.list[5].main.humidity + ("%");
     windspeedOne.textContent = ("Day 1 windspeed: ") + weatherData.list[5].wind.speed + (" MPH");
 
-    temperatureTwo.textContent = ("Day 2 temperature: ") + weatherData.list[13].main.temp;
+    temperatureTwo.textContent = ("Day 2 temperature: ") + weatherData.list[13].main.temp + (" °F");
     humidityTwo.textContent = ("Day 2 humidity: ") + weatherData.list[13].main.humidity + ("%");
     windspeedTwo.textContent = ("Day 2 windspeed: ") + weatherData.list[13].wind.speed + (" MPH");
 
-    temperatureThree.textContent = ("Day 3 temperature: ") + weatherData.list[21].main.temp;
+    temperatureThree.textContent = ("Day 3 temperature: ") + weatherData.list[21].main.temp + (" °F");
     humidityThree.textContent = ("Day 3 humidity: ") + weatherData.list[21].main.humidity + ("%");
     windspeedThree.textContent = ("Day 3 windspeed: ") + weatherData.list[21].wind.speed + (" MPH");
 
-    temperatureFour.textContent = ("Day 4 temperature: ") + weatherData.list[29].main.temp;
+    temperatureFour.textContent = ("Day 4 temperature: ") + weatherData.list[29].main.temp + (" °F");
     humidityFour.textContent = ("Day 4 humidity: ") + weatherData.list[29].main.humidity + ("%");
     windspeedFour.textContent = ("Day 4 windspeed: ") + weatherData.list[29].wind.speed + (" MPH");
 
-    temperatureFive.textContent = ("Day 5 temperature: ") + weatherData.list[37].main.temp;
+    temperatureFive.textContent = ("Day 5 temperature: ") + weatherData.list[37].main.temp + (" °F");
     humidityFive.textContent = ("Day 5 humidity: ") + weatherData.list[37].main.humidity + ("%");
     windspeedFive.textContent = ("Day 5 windspeed: ") + weatherData.list[37].wind.speed + (" MPH");
 }
