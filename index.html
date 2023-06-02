@@ -28,17 +28,48 @@
               <button id = "search-btn" class="btn btn-info btn-block"> Show me the weather! </button> -->
               
               <!-- display current weather -->
-              <div class="col-12 col-md-9 p-3 text-light">
+              <section  class="currentWeather">
                 <script> document.write(Date());</script>
                 <h3> 
                   <p id="location"></p>
                 </h3>
                 <div>
-                  <p id="temperature"></p>
-                  <p id="humidity"></p>
-                  <p id="windspeed"></p>
+                  <p id="currentTemperature"></p>
+                  <p id="currentHumidity"></p>
+                  <p id="currentWindspeed"></p>
                 </div>
-              </div>
+              </section>
+
+              <!-- Display weather forecast -->
+              <section class="weatherBox">
+                <div class="weatherBox1">
+                  <p id="temperatureOne"></p>
+                  <p id="humidityOne"></p>
+                  <p id="windspeedOne"></p>
+                </div>
+                <div class="weatherBox2">
+                  <p id="temperatureTwo"></p>
+                  <p id="humidityTwo"></p>
+                  <p id="windspeedTwo"></p>
+                </div>
+                <div class="weatherBox3">
+                  <p id="temperatureThree"></p>
+                  <p id="humidityThree"></p>
+                  <p id="windspeedThree"></p>
+                </div>
+                <div class="weatherBox4">
+                  <p id="temperatureFour"></p>
+                  <p id="humidityFour"></p>
+                  <p id="windspeedFour"></p>
+                </div>
+                <div class="weatherBox5">
+                  <p id="temperatureFive"></p>
+                  <p id="humidityFive"></p>
+                  <p id="windspeedFive"></p>
+                </div>
+
+
+              </section>
               
             </div>
         </main>
